@@ -14,3 +14,26 @@ Datos excluidos del repositorio por privacidad (.gitignore).
 
 ### Próximo paso
 Fase 1: Descarga del dataset y primer análisis exploratorio en DuckDB.
+
+
+
+## 2026-04-20 — Fase 1: EDA en progreso
+
+### Lo completado hoy
+- Carga del dataset cs-training.csv (150.000 filas × 11 columnas)
+- Análisis de nulos: MonthlyIncome (19.82%) y NumberOfDependents (2.62%)
+- Inspección de tipos: todas las variables son numéricas (int/float)
+- Estadísticas descriptivas completas
+- Detección de outliers críticos
+
+### Hallazgos clave
+- MonthlyIncome tiene distribución right-skewed — usar mediana para imputar
+- Variables de mora (30-59, 60-89, 90 días) tienen valor 98 con 264 ocurrencias
+  → Probable código especial del sistema origen, tratar como nulo en Fase 2
+- NumberOfDependents es float por presencia de nulos (comportamiento de pandas)
+
+### Pendiente para próxima sesión
+- Distribución de la variable objetivo (SeriousDlqin2yrs)
+- Histogramas de variables numéricas
+- Heatmap de correlaciones
+- Relación entre variables y variable objetivo
